@@ -1,8 +1,8 @@
 <template>
     <div :class="flipCard" class="card-content col-span-1 min-h-20 h-20 md:h-24 lg:h-32 min-w-10 w-10 md:w-20 lg:w-40 flex justify-center items-center bg-sky-300 hover:bg-sky-200 px-1 shadow rounded" @click="trackerStore.addItemToCurrentlySelected(props.cardId, showCard)">
-        <img :src="imagePath" :alt="imageName" v-if="showCard" style="max-height: 90%;">
+        <img :src="imagePath" :alt="imageName" v-show="showCard" style="max-height: 90%;">
 
-        <img src="/assets/Jellyfish-Coloring-book.svg" alt="🍌" v-if="!showCard" style="max-height: 25%;">
+        <img src="/assets/Jellyfish-Coloring-book.svg" alt="🍌" v-show="!showCard" style="max-height: 25%;">
     </div>
 </template>
 
