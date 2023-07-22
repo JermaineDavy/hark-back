@@ -7,10 +7,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useTrackerStore } from '../stores/cardTracker';
 
 const props = defineProps(['imageName', 'showImage', 'cardId']);
+const emit = defineEmits('flipCard');
+
 const imagePath = computed(() => `/assets/images/${props.imageName}.svg`);
 const trackerStore = useTrackerStore();
 
@@ -28,6 +30,10 @@ const flipCard = computed(() => {
     }
 
     return 'flip-down';
+});
+
+watch(flipCard, () => {
+    emit('flipCard');
 });
 </script>
 

@@ -2,7 +2,7 @@
     <SettingsBar />
     <main class="mt-2 flex justify-center">
         <div :class="gridSize" class="grid place-items-center gap-2">
-            <Card v-for="card in trackerStore.boardItems" :key="card.id" :cardId="card.id" :imageName="card.url"></Card>
+            <Card v-for="card in trackerStore.boardItems" :key="card.id" :cardId="card.id" :imageName="card.url" @flipCard="cardFlipAudio.play()"></Card>
         </div>
     </main>
 </template>
@@ -42,6 +42,8 @@ const availableImages = [
     'Walrus_001_Head_Cartoon_Brown'
 ];
 
+const cardFlipAudio = new Audio('/assets/sounds/flipcard-91468.mp3');
+
 const currentlySelectImages = computed(() => {
     const imageSet = availableImages.sort(() => Math.random() - 0.5)
         .slice(0, trackerStore.boardSize / 2);
@@ -60,6 +62,7 @@ const gridSize = computed(() => {
 watch(currentlySelectImages, () => trackerStore.initializeBoard(currentlySelectImages.value));
 
 onMounted(() => {
+    cardFlipAudio.play();
     trackerStore.initializeBoard(currentlySelectImages.value);
 });
 </script>
