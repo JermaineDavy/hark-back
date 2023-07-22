@@ -1,4 +1,5 @@
 <template>
+    <Win v-if="showWinScreen" />
     <div class="max-w-screen-xl grid grid-place-items-center md:place-items-center grid-cols-2 sm:grid-cols-2 md:grid-cols-4 mx-auto p-4 border-gray-200 bg-sky-500 text-white rounded-br rounded-bl">
         <div class="relative">
             <button @click="showSizeSelector =! showSizeSelector" type="button" class="flex justify-center place-items-center bg-sky-400 hover:bg-sky-300 py-1 px-3 rounded">
@@ -14,7 +15,7 @@
         </div>
 
         <div class="font-medium">{{ remainingItems }}/{{ trackerStore.boardSize }} Cards remaining</div>
-        
+
         <div class="font-medium">{{ trackerStore.moveCounter }} Move<span v-if="trackerStore.moveCounter != 1">s</span></div>
         
         <div class="font-medium">{{ timeTaken }}</div>
@@ -24,10 +25,12 @@
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { useTrackerStore } from '../stores/cardTracker';
+import Win from './Win.vue';
 
 const availableSizes = [12, 16, 18, 24, 32, 36, 48];
 const counter = ref(0);
 const showSizeSelector = ref(false);
+const showWinScreen = ref(false);
 
 const trackerStore = useTrackerStore();
 
@@ -68,8 +71,12 @@ function padTimeValue(value) {
 }
 
 watch(remainingItems, () => {
-    if(remainingItems.value == 0) {
+    if(remainingItems.value <= 0) {
         clearInterval(timer);
+
+        showWinScreen.value = true;
+    }else {
+        showWinScreen.value = false;
     }
 });
 </script>
