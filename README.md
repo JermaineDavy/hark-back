@@ -1,14 +1,19 @@
 # Hark Back
 
-This template should help get you started developing with Vue 3 in Vite.
+Hark Back is a memory matching game for all ages.
 
-## Recommended IDE Setup
+## Technology used
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- VueJS
+- Tailwind
 
-## Customize configuration
+## Assets
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- All the images used were sourced at [https://freesvg.org/](https://freesvg.org/).
+- All audio was sourced at [https://pixabay.com](https://pixabay.com).
+## Project Requirements
+
+To install and run this project the only dependency you require is NodeJs.
 
 ## Project Setup
 
