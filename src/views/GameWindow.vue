@@ -50,9 +50,9 @@ const currentlySelectImages = computed(() => {
 });
 
 const gridSize = computed(() => {
-    if(trackerStore.boardSize <= 16) return 'grid-cols-4';
-    if(trackerStore.boardSize >= 18 ) return 'grid-cols-6';
-    if(trackerStore.boardSize >= 24) return 'grid-cols-8';
+    if([12, 16].includes(trackerStore.boardSize)) return 'grid-cols-4';
+    if([18, 24, 36].includes(trackerStore.boardSize)) return 'grid-cols-6';
+    if([32, 48].includes(trackerStore.boardSize)) return 'grid-cols-6 xl:grid-cols-8';
 
     return 'grid-cols-4';
 });

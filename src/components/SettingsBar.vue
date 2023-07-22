@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 border-gray-200 bg-sky-500 text-white rounded-br rounded-bl">
+    <div class="max-w-screen-xl grid grid-place-items-center md:place-items-center grid-cols-2 sm:grid-cols-2 md:grid-cols-4 mx-auto p-4 border-gray-200 bg-sky-500 text-white rounded-br rounded-bl">
         <div class="relative">
             <button @click="showSizeSelector =! showSizeSelector" type="button" class="flex justify-center place-items-center bg-sky-400 hover:bg-sky-300 py-1 px-3 rounded">
                 <span>{{ trackerStore.boardSize }} cards</span>
@@ -14,6 +14,7 @@
         </div>
 
         <div class="font-medium">{{ remainingItems }}/{{ trackerStore.boardSize }} Cards remaining</div>
+        
         <div class="font-medium">{{ trackerStore.moveCounter }} Move<span v-if="trackerStore.moveCounter != 1">s</span></div>
         
         <div class="font-medium">{{ timeTaken }}</div>
